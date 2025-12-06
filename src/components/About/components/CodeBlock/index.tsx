@@ -64,7 +64,7 @@ export function AboutCodeBlock() {
   const aboutData: AboutData = {
     name: 'Roberto Griel Filho',
     age: getCurrentAge(),
-    local: 'Nova Serrana, Minas Gerais',
+    local: 'Nova Serrana, MG',
     stacks: [
       'HTML5',
       { CSS3: ['Sass'] },
@@ -117,20 +117,33 @@ export function AboutCodeBlock() {
 const Window = styled.div`
   background: #1e1e1e;
   border-radius: 12px;
-  padding: 28px 32px 32px;
+  padding: 1rem;
   max-width: 720px;
+  width: 100%;
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
   position: relative;
-
   flex-direction: column;
   align-items: stretch;
+  box-sizing: border-box;
+`
+
+const CodeArea = styled.div`
+  margin-top: 18px;
+  font-family: 'Fira Code', Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #e5e5e5;
+  white-space: pre;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  overflow-x: auto;
 `
 
 const Header = styled.div`
   position: absolute;
   top: 14px;
   left: 18px;
-
   flex-direction: row;
   align-items: center;
   gap: 8px;
@@ -143,26 +156,9 @@ const Dot = styled.span<{ color: string }>`
   background: ${({ color }) => color};
 `
 
-const CodeArea = styled.div`
-  margin-top: 18px;
-  font-family: 'Fira Code', Menlo, Monaco, Consolas, 'Courier New', monospace;
-  font-size: 16px;
-  line-height: 1.7;
-  color: #e5e5e5;
-  white-space: pre;
-
-  flex-direction: column;
-  align-items: flex-start;
-`
-
-interface LineProps {
-  indent?: number
-}
-
-const Line = styled.div<LineProps>`
+const Line = styled.div<{ indent?: number }>`
   flex-direction: row;
   align-items: baseline;
-
   padding-left: ${({ indent = 0 }) => 8 + indent * 24}px;
 `
 
