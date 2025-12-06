@@ -3,8 +3,6 @@ import styled from 'styled-components'
 import { FiMail, FiLock, FiEye, FiEyeOff, FiLogIn, FiAlertCircle } from 'react-icons/fi'
 import { z } from 'zod'
 
-// schema fora do componente (opcional, mas mais limpo)
-
 export default function AdminLogin() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -22,13 +20,11 @@ export default function AdminLogin() {
       password: z.string().min(6, { error: 'Senha deve ter no mínimo 6 caracteres' })
     })
 
-    // limpa erros
     setErrors({})
 
     const result = loginSchema.safeParse({ email, password })
 
     if (!result.success) {
-      // zod 4: flattenError é função top-level
       const { fieldErrors } = z.flattenError(result.error) as {
         fieldErrors: Partial<Record<'email' | 'password', string[]>>
       }
@@ -40,7 +36,6 @@ export default function AdminLogin() {
 
       setErrors(newErrors)
 
-      // foca no primeiro campo com erro
       if (newErrors.email) {
         emailInputRef.current?.focus()
       } else if (newErrors.password) {
@@ -50,9 +45,7 @@ export default function AdminLogin() {
       return
     }
 
-    // sucesso
     console.log('Login attempt:', result.data)
-    // aqui você chamaria sua API, redireciona etc.
   }
 
   return (
