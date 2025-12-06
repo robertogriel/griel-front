@@ -10,6 +10,7 @@ const Container = styled.main`
   border-radius: var(--space);
   height: 96vh;
   margin: 10px;
+  overflow: hidden;
 `
 
 function GrielDev({ Component, pageProps }: AppProps) {

@@ -22,7 +22,8 @@
     "react-dom": "19.2.1",
     "react-icons": "^5.5.0",
     "styled-components": "^6.1.19",
-    "typed.js": "^2.1.0"
+    "typed.js": "^2.1.0",
+    "zod": "^4.1.13"
   },
   "devDependencies": {
     "@types/node": "24.10.1",
