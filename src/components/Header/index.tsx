@@ -36,6 +36,13 @@ export default function Header() {
         alt: 'Tenha a sua própria loja virtual',
         small: 'Tenha sua loja virtual',
         strong: 'Lojas Virtuais'
+      },
+      {
+        href: '/admin',
+        icon: 'admin',
+        alt: 'Área restrita para administradores',
+        small: 'Área restrita para administradores',
+        strong: 'Administração'
       }
     ]
 
