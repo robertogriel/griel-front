@@ -2,18 +2,20 @@ import { useRef, useState } from 'react'
 import styled from 'styled-components'
 import { FiMail, FiLock, FiEye, FiEyeOff, FiLogIn, FiAlertCircle } from 'react-icons/fi'
 import { z } from 'zod'
+import Loading from '../../components/Loading'
 
 export default function AdminLogin() {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [showPassword, setShowPassword] = useState(false)
+  const [email, setEmail] = useState<string>('')
+  const [password, setPassword] = useState<string>('')
+  const [showPassword, setShowPassword] = useState<boolean>(false)
   const [errors, setErrors] = useState<{ email?: string; password?: string }>({})
+  const [loading, setLoading] = useState<boolean>(false)
 
   const emailInputRef = useRef<HTMLInputElement>(null)
   const passwordInputRef = useRef<HTMLInputElement>(null)
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+  function handleSubmit(data: React.FormEvent) {
+    data.preventDefault()
 
     const loginSchema = z.object({
       email: z.email({ error: 'Email inválido' }),
@@ -45,7 +47,12 @@ export default function AdminLogin() {
       return
     }
 
-    console.log('Login attempt:', result.data)
+    setLoading(true)
+
+    setTimeout(() => {
+      setLoading(false)
+      console.log('Simulate API request with ', result.data)
+    }, 5000)
   }
 
   return (
@@ -68,6 +75,7 @@ export default function AdminLogin() {
                 type="email"
                 placeholder="seu@email.com"
                 value={email}
+                disabled={loading}
                 onChange={e => {
                   setEmail(e.target.value)
                   if (errors.email) {
@@ -95,6 +103,7 @@ export default function AdminLogin() {
                 type={showPassword ? 'text' : 'password'}
                 placeholder="••••••••"
                 value={password}
+                disabled={loading}
                 onChange={e => {
                   setPassword(e.target.value)
                   if (errors.password) {
@@ -120,10 +129,14 @@ export default function AdminLogin() {
             )}
           </FormGroup>
 
-          <LoginButton type="submit">
-            <FiLogIn />
-            Entrar
-          </LoginButton>
+          {loading && <Loading height="50" width="50" />}
+
+          {!loading && (
+            <LoginButton type="submit">
+              <FiLogIn />
+              Entrar
+            </LoginButton>
+          )}
         </Form>
       </LoginCard>
     </Container>
