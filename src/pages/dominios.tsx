@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from 'react'
 import { HtmlHead } from '../components/Html/Head'
 import Main from '../components/Html/Main'
