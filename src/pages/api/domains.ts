@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 
-const hander = async (req: NextApiRequest, res: NextApiResponse) => {
+async function handler(req: NextApiRequest, res: NextApiResponse) {
   const domainApi = process.env.DOMAIN_CHECK_API
 
   await fetch(`${domainApi}?d=${req.query.q}`, {
@@ -21,4 +21,4 @@ const hander = async (req: NextApiRequest, res: NextApiResponse) => {
     })
 }
 
-export default hander
+export default handler
