@@ -1,10 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 
 const hander = async (req: NextApiRequest, res: NextApiResponse) => {
-  const domainApi =
-    process.env.NODE_ENV === 'production'
-      ? process.env.DOMAIN_CHECK_API
-      : 'https://www.hoteldaweb.com.br/ajax-isavail.php'
+  const domainApi = process.env.DOMAIN_CHECK_API
 
   await fetch(`${domainApi}?d=${req.query.q}`, {
     method: 'GET'
