@@ -3,6 +3,9 @@ import type { AppProps } from 'next/app'
 import styled from 'styled-components'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import { CryptProvider } from '../hooks/useEncrypt'
+import { SnackbarProvider } from 'notistack'
+import { AuthProvider } from '../hooks/useAuth'
 
 const Container = styled.main`
   flex-direction: column;
@@ -16,13 +19,19 @@ const Container = styled.main`
 function GrielDev({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Container>
-        <Header />
+      <SnackbarProvider autoHideDuration={5000}>
+        <CryptProvider>
+          <AuthProvider>
+            <Container>
+              <Header />
 
-        <Component {...pageProps} />
+              <Component {...pageProps} />
 
-        <Footer />
-      </Container>
+              <Footer />
+            </Container>
+          </AuthProvider>
+        </CryptProvider>
+      </SnackbarProvider>
     </>
   )
 }
