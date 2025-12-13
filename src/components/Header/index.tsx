@@ -38,11 +38,11 @@ export default function Header() {
         strong: 'Lojas Virtuais'
       },
       {
-        href: '/admin',
+        href: '/dashboard',
         icon: 'admin',
-        alt: 'Área restrita para administradores',
-        small: 'Área restrita para administradores',
-        strong: 'Administração'
+        alt: 'Painel de clientes',
+        small: 'Painel de clientes',
+        strong: 'Painel'
       }
     ]
 
