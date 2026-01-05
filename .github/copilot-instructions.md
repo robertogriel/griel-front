@@ -1,0 +1,1 @@
+Commit messages should be concise and descriptive, in english, with semantic style and in gerund form. It should start with the semantic prefix, followed by a colon and a space, and then the message body with first letter capitalized. Maximum length is 72 characters.

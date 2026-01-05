@@ -1,9 +1,9 @@
-@import 'reset.scss';
-@import 'fonts.scss';
-@import 'variables.scss';
-@import 'mixin.scss';
-@import 'fluid.scss';
-@import 'scrollbar.scss';
+@use 'reset.scss';
+@use 'fonts.scss';
+@use 'variables.scss';
+@use 'mixin.scss';
+@use 'fluid.scss';
+@use 'scrollbar.scss';
 
 //Typed.JS
-@import 'writter.scss';
+@use 'writter.scss';

@@ -2,9 +2,10 @@
 const nextConfig = {
   reactStrictMode: true,
   env: {
-    MONGODB_STRING: process.env.MONGODB_STRING,
-    MONGODB_URL: process.env.MONGODB_URL,
-    FRONT_API: process.env.FRONT_API
+    BIRTH_DATE: process.env.BIRTH_DATE,
+    DOMAIN_CHECK_API: process.env.DOMAIN_CHECK_API,
+    BACKEND_API: process.env.BACKEND_API,
+    SHARED_SECRET: process.env.SHARED_SECRET
   },
   compiler: {
     styledComponents: true

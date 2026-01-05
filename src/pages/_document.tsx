@@ -1,5 +1,5 @@
-// eslint-disable-next-line @next/next/no-document-import-in-page
 import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document'
+import { JSX } from 'react'
 import { ServerStyleSheet } from 'styled-components'
 
 export default class MyDocument extends Document {

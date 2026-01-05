@@ -17,13 +17,6 @@ const Home: NextPage = () => {
 
           <About />
         </Hero>
-
-        <AboutCode>
-          <picture>
-            <source srcSet="/images/webp/code.webp" type="image/webp" />
-            <img loading="lazy" src="/images/png/code.png" alt="Sobre" />
-          </picture>
-        </AboutCode>
       </Wrapper>
     </>
   )
@@ -45,7 +38,6 @@ const Wrapper = styled.div`
 
 const Hero = styled.section`
   width: 100%;
-  max-width: 800px;
   height: 100%;
   min-height: 130px;
   flex-direction: column;
