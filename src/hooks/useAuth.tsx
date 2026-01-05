@@ -16,8 +16,8 @@ interface LoginProps {
 }
 
 interface AuthContextType {
-  login: (email: string, password: string) => Promise<LoginProps>
-  checkLogin: () => Promise<void>
+  login: (email: string, password: string) => Promise<void>
+  checkLogin: () => Promise<boolean>
 }
 
 const AuthContext = createContext<AuthContextType>({} as AuthContextType)
@@ -32,7 +32,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   }, [Router.pathname])
 
   async function checkLogin() {
-    if (!Router.pathname.startsWith('/dashboard')) return
+    if (!Router.pathname.startsWith('/dashboard')) return false
 
     const tokenFromCookies = Cookies.get(CookiesEnum.AUTH_TOKEN)
 
@@ -41,7 +41,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
     if (shouldReturnToLogin) {
       Router.push('/dashboard/login')
-      return
+      return false
     }
 
     if (tokenFromCookies && !userData) {
@@ -52,7 +52,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       })
 
       setUserData(result.data)
+
     }
+    return true
   }
 
   async function login(email: string, password: string) {
@@ -67,7 +69,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
     Cookies.set(CookiesEnum.AUTH_TOKEN, response.data.token, { expires: 30 })
 
-    return response.data
+    const loginSuccess = await checkLogin()
+    if (loginSuccess) {
+      Router.push('/dashboard')
+    }
   }
 
   return (
