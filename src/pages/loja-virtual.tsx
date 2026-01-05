@@ -36,7 +36,7 @@ const LojaVirtual: React.FC = () => {
     },
     {
       title: 'Fretes mais baratos e com rastreamento',
-      description: `<p>A sua loja é integrada com o sistema MelhorEnvios, que oferece diversas opções de envios
+      description: `<p>A sua loja é integrada com o sistema MelhorEnvio, que oferece diversas opções de envios
       além dos Correios, e com valor de frete muito mais barato do que na agência.</p>
             <p>Além disso, todo o processo de rastreio é feito de forma automática, da sua loja para seu cliente,
             informando o ato da postagem, transporte e quaisquer ocorrências.</p>`
@@ -151,16 +151,6 @@ const LojaVirtual: React.FC = () => {
       complete: true
     },
     {
-      title: 'Receba pagamentos no cartão de crédito e boleto bancário',
-      basic: true,
-      complete: true
-    },
-    {
-      title: 'Receba pagamentos via PIX',
-      basic: true,
-      complete: true
-    },
-    {
       title: 'Recuperação de carrinho abandonado',
       basic: true,
       complete: true
@@ -178,6 +168,16 @@ const LojaVirtual: React.FC = () => {
     {
       title: 'Variações dos produtos',
       basic: true,
+      complete: true
+    },
+    {
+      title: 'Receba pagamentos via PIX',
+      basic: true,
+      complete: true
+    },
+    {
+      title: 'Integração com PagSeguro para cartão de crédito, boleto e PIX',
+      basic: false,
       complete: true
     },
     {
@@ -288,14 +288,14 @@ const LojaVirtual: React.FC = () => {
               <tr>
                 <td></td>
                 <td>
-                  <strong>R$ 2.500,00</strong>
+                  <strong>R$ 2.999,00</strong>
                   <br />
-                  <span>ou 12x de R$258,56</span>
+                  <span>ou 12x de R$310,17</span>
                 </td>
                 <td>
-                  <strong>R$ 3.000,00</strong>
+                  <strong>R$ 3.499,00</strong>
                   <br />
-                  <span>ou 12x de R$310,28</span>
+                  <span>ou 12x de R$361,88</span>
                 </td>
               </tr>
             </TableBody>
@@ -311,9 +311,9 @@ const LojaVirtual: React.FC = () => {
             disponibilidade.
           </p>
           <p>
-            A hospedagem é renovada todos os meses e tem o custo de <b>R$80,00</b>/mês.
+            A hospedagem é renovada todos os meses e tem o custo de <b>R$95,00</b>/mês.
           </p>
-          <small>Valores válidos até o dia 31/12/2024.</small>
+          <small>Valores válidos até o dia 31/12/2026.</small>
         </header>
         <div></div>
       </Hosting>
